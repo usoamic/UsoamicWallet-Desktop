@@ -1,1 +1,1 @@
-# Usoamic Wallet for Android
+# Usoamic Wallet for Desktop
