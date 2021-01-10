@@ -1,54 +1,10 @@
-import org.jetbrains.compose.compose
-import org.jetbrains.compose.desktop.application.dsl.TargetFormat
-import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
-
-object Version {
-
-}
-
-plugins {
-    kotlin("jvm") version "1.4.20"
-    id("org.jetbrains.compose") version "0.2.0-build132"
-}
-
-group = "io.usoamic"
-version = "1.0"
-
-repositories {
-    jcenter()
-    mavenCentral()
-    maven { url = uri("https://maven.pkg.jetbrains.space/public/p/compose/dev") }
-    maven("https://dl.bintray.com/kotlin/kotlin-eap")
-}
-
-dependencies {
-    testImplementation(kotlin("test-junit"))
-    implementation(compose.desktop.currentOs)
-    implementation(kotlin("stdlib-jdk8"))
-}
-
-tasks.test {
-    useJUnit()
-}
-
-tasks.withType<KotlinCompile>() {
-    kotlinOptions.jvmTarget = "1.8"
-}
-
-compose.desktop {
-    application {
-        mainClass = "MainKt"
-        nativeDistributions {
-            targetFormats(TargetFormat.Dmg, TargetFormat.Msi, TargetFormat.Deb)
-            packageName = "untitled1"
-        }
+buildscript {
+    repositories {
+        google()
+        gradlePluginPortal()
+    }
+    dependencies {
+       // classpath("com.android.tools.build:gradle:3.2.0")
     }
 }
-val compileKotlin: KotlinCompile by tasks
-compileKotlin.kotlinOptions {
-    jvmTarget = "1.8"
-}
-val compileTestKotlin: KotlinCompile by tasks
-compileTestKotlin.kotlinOptions {
-    jvmTarget = "1.8"
-}
+
