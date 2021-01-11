@@ -1,9 +1,13 @@
 package io.usoamic.wallet.ui.base
 
+import io.reactivex.Single
+import io.reactivex.disposables.CompositeDisposable
+import io.reactivex.disposables.Disposable
+import io.usoamic.wallet.domain.models.base.ErrorArguments
+import io.usoamic.wallet.other.MutableLiveData
 import tornadofx.ViewModel
 
 open class BaseViewModel : ViewModel() {
-    /*
     private val compositeDisposable = CompositeDisposable()
 
     val ldProgress = MutableLiveData<Boolean>()
@@ -29,9 +33,7 @@ open class BaseViewModel : ViewModel() {
         compositeDisposable.add(this)
     }
 
-    override fun onCleared() {
-        super.onCleared()
+    fun onCleared() {
         compositeDisposable.clear()
     }
-     */
 }
