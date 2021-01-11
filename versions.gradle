@@ -7,7 +7,9 @@ def versions = [:]
 versions.kotlin = '1.4.21'
 
 versions.rxjava2 = '2.2.19'
+versions.rxjavafx = '2.2.2'
 versions.rxkotlin2 = '2.4.0'
+
 
 versions.usoamickt = '1.2.1'
 versions.validateutilkt = '1.0.0'
@@ -39,6 +41,7 @@ deps.tornado = tornado
 def rx = [:]
 rx.java = "io.reactivex.rxjava2:rxjava:$versions.rxjava2"
 rx.kotlin = "io.reactivex.rxjava2:rxkotlin:$versions.rxkotlin2"
+rx.javafx = "io.reactivex.rxjava2:rxjavafx:$versions.rxjavafx"
 deps.rx = rx
 
 def kotlin = [:]
