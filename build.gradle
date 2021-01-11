@@ -20,6 +20,11 @@ compileKotlin {
     kotlinOptions.jvmTarget = "1.8"
 }
 
+allprojects {
+    group = "io.usoamic"
+    version = "1.0.0"
+}
+
 repositories {
     jcenter()
     mavenLocal()
