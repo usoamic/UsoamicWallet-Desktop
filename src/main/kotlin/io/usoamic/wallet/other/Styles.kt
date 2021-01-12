@@ -1,10 +1,9 @@
 package io.usoamic.wallet.other
 
+import io.usoamic.wallet.util.ResourcesUtil
+import io.usoamic.wallet.values.R
 import javafx.scene.text.FontWeight
-import tornadofx.Stylesheet
-import tornadofx.box
-import tornadofx.cssclass
-import tornadofx.px
+import tornadofx.*
 
 class Styles : Stylesheet() {
     companion object {
@@ -17,5 +16,7 @@ class Styles : Stylesheet() {
             fontSize = 20.px
             fontWeight = FontWeight.BOLD
         }
+
+        setStageIcon(ResourcesUtil.getImage(R.image.IC_LAUNCHER))
     }
 }
