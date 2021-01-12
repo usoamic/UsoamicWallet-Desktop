@@ -12,7 +12,6 @@ abstract class BaseVmView<T : BaseViewModel>(title: String = R.string.APP_NAME, 
     lateinit var viewModel: T
 
     init {
-
         initObservers()
     }
 
@@ -44,7 +43,7 @@ abstract class BaseVmView<T : BaseViewModel>(title: String = R.string.APP_NAME, 
         showErrorDialog(message, isFinish)
     }
 
-    private fun initObservers() {
+    protected open fun initObservers() {
         observe(viewModel.ldThrowable, ::showError)
         observe(viewModel.ldError, ::showErrorDialog)
     }
