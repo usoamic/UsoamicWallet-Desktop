@@ -11,13 +11,22 @@ buildscript {
     }
 }
 
+plugins {
+    id 'application'
+    id 'org.openjfx.javafxplugin' version '0.0.8'
+}
+
 apply plugin: "kotlin"
-apply plugin: "application"
-apply plugin: "org.junit.platform.gradle.plugin"
 apply plugin: "kotlin-kapt"
+apply plugin: "org.junit.platform.gradle.plugin"
+
+javafx {
+    version = "13.0.1"
+    modules = ['javafx.controls', 'javafx.graphics']
+}
 
 compileKotlin {
-    kotlinOptions.jvmTarget = "1.8"
+    kotlinOptions.jvmTarget = "13"
 }
 
 allprojects {
@@ -25,10 +34,12 @@ allprojects {
     version = "1.0.0"
 }
 
+
 repositories {
     jcenter()
     mavenLocal()
     mavenCentral()
+
     maven { url 'https://jitpack.io' }
     maven {
         url "https://oss.sonatype.org/content/repositories/snapshots/"
@@ -55,6 +66,12 @@ dependencies {
     implementation deps.usoamic.validateutilkt
 
     implementation deps.tornado.fx
+
+    implementation deps.fontawesomefx.commons
+    implementation deps.fontawesomefx.controls
+//    implementation deps.fontawesomefx.fontawesome
+    implementation deps.fontawesomefx.materialicons
+    implementation deps.fontawesomefx.materialdesignfont
 
     implementation deps.dagger.runtime
     kapt deps.dagger.compiler
