@@ -2,6 +2,7 @@ package io.usoamic.wallet.ui.auth.auth
 
 import io.usoamic.wallet.extensions.replaceWithSlideLeft
 import io.usoamic.wallet.ui.auth.add.AddView
+import io.usoamic.wallet.ui.auth.create.CreateView
 import io.usoamic.wallet.ui.base.BaseView
 import io.usoamic.wallet.values.R
 import javafx.geometry.Pos
@@ -10,9 +11,9 @@ import tornadofx.*
 
 class AuthView : BaseView() {
     override val root: StackPane = stackpane {
-        paddingAll = 50
-        vbox {
-            spacing = 10.0
+        paddingHorizontal = 50.0
+        vbox(10) {
+            pane()
             alignment = Pos.CENTER
             imageview(R.image.IC_USOAMIC) {
                 fitHeight = 200.0
@@ -34,9 +35,10 @@ class AuthView : BaseView() {
                 fitToParentWidth()
 
                 action {
-
+                    replaceWithSlideLeft<CreateView>()
                 }
             }
         }
     }
+
 }
