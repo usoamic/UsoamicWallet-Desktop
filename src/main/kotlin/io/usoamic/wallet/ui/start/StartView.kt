@@ -4,6 +4,7 @@ import io.usoamic.wallet.UsoamicWallet
 import io.usoamic.wallet.extensions.image
 import io.usoamic.wallet.extensions.observe
 import io.usoamic.wallet.ui.auth.auth.AuthView
+import io.usoamic.wallet.ui.auth.unlock.UnlockView
 import io.usoamic.wallet.ui.base.BaseVmView
 import io.usoamic.wallet.ui.main.wallet.WalletView
 import io.usoamic.wallet.util.BuildConfig
@@ -56,7 +57,7 @@ class StartView : BaseVmView<StartViewModel>() {
 
     private fun goToNextView(hasAccount: Boolean) {
         if (hasAccount) {
-            replaceWith<WalletView>()
+            replaceWith<UnlockView>()
         } else {
             replaceWith<AuthView>()
         }
