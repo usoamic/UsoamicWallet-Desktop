@@ -10,7 +10,7 @@ import tornadofx.ViewModel
 open class BaseViewModel : ViewModel() {
     private val compositeDisposable = CompositeDisposable()
 
-    val ldProgress = MutableLiveData<Boolean>()
+    val ldProgress = MutableLiveData<Boolean>(false)
     val ldThrowable = MutableLiveData<ErrorArguments>()
     val ldError = MutableLiveData<String>()
 
