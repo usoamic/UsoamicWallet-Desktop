@@ -61,7 +61,6 @@ dependencies {
     implementation deps.rx.kotlin
     implementation deps.rx.javafx
 
-    implementation deps.threetenabp
     implementation deps.usoamic.kt
     implementation deps.usoamic.validateutilkt
 

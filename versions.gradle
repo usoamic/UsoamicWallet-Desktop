@@ -13,7 +13,6 @@ versions.rxkotlin2 = '2.4.0'
 
 versions.usoamickt = '1.2.1'
 versions.validateutilkt = '1.0.0'
-versions.threetenabp = '1.2.3'
 versions.gson = "2.8.5"
 versions.web3j = "4.8.1"
 versions.dagger = '2.27'
@@ -30,7 +29,6 @@ versions.openjfx_plugin = "0.0.8"
 ext.versions = versions
 
 def deps = [:]
-deps.threetenabp = "com.jakewharton.threetenabp:threetenabp:$versions.threetenabp"
 deps.gson = "com.google.code.gson:gson:$versions.gson"
 deps.web3j = "org.web3j:core:$versions.web3j"
 deps.zxing = "com.google.zxing:core:$versions.zxing"
