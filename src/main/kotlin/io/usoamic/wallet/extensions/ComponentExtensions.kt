@@ -23,7 +23,7 @@ inline fun <reified T : UIComponent> UIComponent.replaceWithSlide(direction: Vie
         T::class,
         ViewTransition.Slide(
             0.3.seconds,
-            ViewTransition.Direction.LEFT
+            direction
         )
     )
 }

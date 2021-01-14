@@ -15,11 +15,16 @@ abstract class BaseView(title: String? = R.string.APP_NAME, icon: Node? = null) 
 
     protected open fun showErrorDialog(error: String, isFinish: Boolean) {
         alert(
-            type = Alert.AlertType.WARNING,
+            type = if (isFinish) {
+                Alert.AlertType.ERROR
+            } else {
+                Alert.AlertType.WARNING
+            },
             header = "",
+            title = R.string.APP_NAME,
             content = error,
             actionFn = {
-                if(isFinish) {
+                if (isFinish) {
                     currentWindow?.hide()
                 }
             }
