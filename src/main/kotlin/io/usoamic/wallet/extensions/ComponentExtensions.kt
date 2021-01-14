@@ -11,6 +11,14 @@ fun Component.image(url: String): Image {
 }
 
 inline fun <reified T : UIComponent> UIComponent.replaceWithSlideLeft(): Boolean {
+    return replaceWithSlide<T>(ViewTransition.Direction.LEFT)
+}
+
+inline fun <reified T : UIComponent> UIComponent.replaceWithSlideRight(): Boolean {
+    return replaceWithSlide<T>(ViewTransition.Direction.RIGHT)
+}
+
+inline fun <reified T : UIComponent> UIComponent.replaceWithSlide(direction: ViewTransition.Direction): Boolean {
     return replaceWith(
         T::class,
         ViewTransition.Slide(
