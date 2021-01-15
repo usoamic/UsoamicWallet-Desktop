@@ -1,6 +1,5 @@
 package io.usoamic.wallet.commonslib.models.dashboard
 
-import io.usoamic.wallet.db.models.DashboardInfoDb
 import java.math.BigDecimal
 import java.math.BigInteger
 
@@ -20,17 +19,3 @@ data class DashboardInfo(
         )
     }
 }
-
-fun DashboardInfoDb.toDomain() = DashboardInfo(
-    ethBalance = BigDecimal(ethBalance!!),
-    usoBalance = BigDecimal(usoBalance!!),
-    height = BigInteger(height!!),
-    supply = BigDecimal(supply!!)
-)
-
-fun DashboardInfo.toRealm() = DashboardInfoDb(
-    ethBalance = ethBalance.toPlainString(),
-    usoBalance = usoBalance.toPlainString(),
-    height = height.toString(),
-    supply = supply.toPlainString()
-)
