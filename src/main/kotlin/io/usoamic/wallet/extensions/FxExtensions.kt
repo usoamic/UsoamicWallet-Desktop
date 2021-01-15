@@ -13,6 +13,7 @@ import javafx.event.EventTarget
 import javafx.geometry.Pos
 import javafx.scene.control.*
 import javafx.scene.layout.HBox
+import javafx.scene.layout.Priority
 import javafx.scene.layout.StackPane
 import javafx.scene.paint.Color
 import javafx.scene.text.TextAlignment
@@ -45,24 +46,37 @@ fun EventTarget.materialbutton(icon: MaterialDesignIcon, op: Button.() -> Unit =
     }
 }
 
-fun EventTarget.backbuttontoolbar(backAction: () -> Unit = {}): ToolBar = ToolBar().also { toolbar ->
-    toolbar.addClass("header")
-    // Force the container to retain pos center even when it's resized (hack to make ToolBar behave)
-    toolbar.skinProperty().onChange { s ->
-        (toolbar.lookup(".container") as? HBox)?.apply {
-            alignment = Pos.CENTER_LEFT
-            alignmentProperty().onChange {
-                if (it != Pos.CENTER_LEFT) alignment = Pos.CENTER_LEFT
+fun EventTarget.backbuttontoolbar(backAction: () -> Unit = {}): ToolBar {
+    return ToolBar().also { toolbar ->
+        toolbar.addClass("header")
+        toolbar.applySkinProperty(Pos.CENTER_LEFT)
+        // Force the container to retain pos center even when it's resized (hack to make ToolBar behave)
+        toolbar.materialbutton(MaterialDesignIcon.ARROW_LEFT) {
+            action {
+                backAction.invoke()
             }
         }
+        toolbar.spacer()
+        addChildIfPossible(toolbar)
     }
-    toolbar.materialbutton(MaterialDesignIcon.ARROW_LEFT) {
-        action {
-            backAction.invoke()
+}
+
+fun EventTarget.refreshbuttontoolbar(refreshAction: () -> Unit = {}): ToolBar {
+    return ToolBar().also { toolbar ->
+        toolbar.addClass("header")
+        toolbar.applySkinProperty(Pos.CENTER_RIGHT)
+        // Force the container to retain pos center even when it's resized (hack to make ToolBar behave)
+        toolbar.materialbutton(MaterialDesignIcon.REFRESH) {
+            setPrefSize(
+                R.dimen.DEFAULT_LARGE_INDENT,
+                R.dimen.DEFAULT_LARGE_INDENT
+            )
+            action {
+                refreshAction.invoke()
+            }
         }
+        addChildIfPossible(toolbar)
     }
-    toolbar.spacer()
-    addChildIfPossible(toolbar)
 }
 
 fun EventTarget.informationBox(message: String): StackPane = informationContainer(
@@ -84,6 +98,33 @@ fun EventTarget.informationItem(
     textAlign = TextAlignment.LEFT,
     isCopyable = isCopyable
 )
+
+fun Label.copyToClipboardOnClick() {
+    setOnMouseClicked {
+        if (text != null) {
+            Clipboard.copy(text)
+        }
+    }
+}
+
+fun EventTarget.progressWhen(expr: () -> ObservableValue<Boolean>): Control {
+    return ProgressBar().attachTo(this).also {
+        it.visibleWhen(expr)
+    }
+}
+
+fun EventTarget.fontawesomeiconview(
+    image: FontAwesomeIcon,
+    color: Color,
+    size: Int = 20,
+    op: FontAwesomeIconView.() -> Unit = {}
+): FontAwesomeIconView {
+    return FontAwesomeIconView(image).also {
+        it.glyphSize = size
+        it.fill = color
+        it.attachTo(this, op)
+    }
+}
 
 private fun EventTarget.informationContainer(
     icon: FontAwesomeIcon? = null,
@@ -139,29 +180,28 @@ private fun EventTarget.informationContainer(
     addChildIfPossible(it)
 }
 
-fun Label.copyToClipboardOnClick() {
-    setOnMouseClicked {
-        if (text != null) {
-            Clipboard.copy(text)
+private fun EventTarget.onebuttontoolbar(icon: MaterialDesignIcon, isRight: Boolean, action: () -> Unit = {}): ToolBar {
+    return ToolBar().also { toolbar ->
+        toolbar.addClass("header")
+        // Force the container to retain pos center even when it's resized (hack to make ToolBar behave)
+        toolbar.materialbutton(icon) {
+            action {
+                action.invoke()
+            }
         }
+        toolbar.spacer()
+        addChildIfPossible(toolbar)
     }
 }
 
-fun EventTarget.progressWhen(expr: () -> ObservableValue<Boolean>): Control {
-    return ProgressBar().attachTo(this).also {
-        it.visibleWhen(expr)
-    }
-}
+private fun ToolBar.applySkinProperty(align: Pos = Pos.CENTER_LEFT): ToolBar = apply {
+    skinProperty().onChange { s ->
+        (lookup(".container") as? HBox)?.apply {
+            alignment = align
 
-fun EventTarget.fontawesomeiconview(
-    image: FontAwesomeIcon,
-    color: Color,
-    size: Int = 20,
-    op: FontAwesomeIconView.() -> Unit = {}
-): FontAwesomeIconView {
-    return FontAwesomeIconView(image).also {
-        it.glyphSize = size
-        it.fill = color
-        it.attachTo(this, op)
+            alignmentProperty().onChange {
+                if (it != align) alignment = align
+            }
+        }
     }
 }
