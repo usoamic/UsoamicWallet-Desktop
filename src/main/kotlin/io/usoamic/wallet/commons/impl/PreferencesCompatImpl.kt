@@ -1,24 +1,16 @@
-package io.usoamic.wallet.domain.repositories
+package io.usoamic.wallet.commons.impl
 
 import io.usoamic.wallet.exceptions.PreferenceKeyNotFoundException
-import io.usoamic.wallet.util.PreferenceKey
+import io.usoamic.wallet.commonslib.util.api.PreferencesCompat
 import java.util.prefs.Preferences
 import javax.inject.Inject
 
-class PreferencesRepositoryImpl @Inject constructor() : PreferencesRepository {
+class PreferencesCompatImpl @Inject constructor() : PreferencesCompat {
     private val preferences: Preferences by lazy {
         Preferences.userNodeForPackage(this::class.java)
     }
 
-    override fun getAddress(): String = getString(PreferenceKey.ADDRESS)
-
-    override fun setAddress(address: String) = setString(PreferenceKey.ADDRESS, address)
-
-    override fun removeAll() {
-        preferences.removeNode()
-    }
-
-    private fun getString(key: String): String {
+    override fun getString(key: String): String {
         preferences.get(key, null)?.let {
             return it
         } ?: run {
@@ -26,7 +18,7 @@ class PreferencesRepositoryImpl @Inject constructor() : PreferencesRepository {
         }
     }
 
-    private fun getLong(key: String): Long {
+    override fun getLong(key: String): Long {
         val long = preferences.getLong(key, -1L)
         if (long == -1L) {
             throw PreferenceKeyNotFoundException(key)
@@ -34,15 +26,19 @@ class PreferencesRepositoryImpl @Inject constructor() : PreferencesRepository {
         return long
     }
 
-    private fun setString(key: String, value: String) {
+    override fun putString(key: String, value: String) {
         preferences.put(key, value)
     }
 
-    private fun setLong(key: String, value: Long) {
+    override fun putLong(key: String, value: Long) {
         preferences.putLong(key, value)
     }
 
     override fun remove(key: String) {
         preferences.remove(key)
+    }
+
+    override fun removeAll() {
+        preferences.removeNode()
     }
 }
