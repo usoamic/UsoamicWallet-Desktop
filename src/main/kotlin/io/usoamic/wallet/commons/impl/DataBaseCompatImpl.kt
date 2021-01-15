@@ -1,8 +1,9 @@
 package io.usoamic.wallet.commons.impl
 
 import io.usoamic.wallet.commonslib.util.api.DataBaseCompat
+import javax.inject.Inject
 
-class DataBaseCompatImpl : DataBaseCompat {
+class DataBaseCompatImpl @Inject constructor() : DataBaseCompat {
     override fun <T> update(data: T) {
         TODO("Not yet implemented")
     }
