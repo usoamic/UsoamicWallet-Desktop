@@ -4,19 +4,13 @@ import io.usoamic.wallet.commonslib.util.api.DataBaseCompat
 import javax.inject.Inject
 
 class DataBaseCompatImpl @Inject constructor() : DataBaseCompat {
-    override fun <T> update(data: T) {
-        TODO("Not yet implemented")
-    }
+    override fun <T> update(data: T) = Unit
 
-    override fun <T> add(data: T) {
-        TODO("Not yet implemented")
-    }
+    override fun <T> add(data: T) = Unit
 
     override fun <T> getFirst(cls: Class<T>): T? {
-        TODO("Not yet implemented")
+        return null
     }
 
-    override fun <T> getAll(cls: Class<T>): List<T> {
-        TODO("Not yet implemented")
-    }
+    override fun <T> getAll(cls: Class<T>): List<T> = listOf()
 }
