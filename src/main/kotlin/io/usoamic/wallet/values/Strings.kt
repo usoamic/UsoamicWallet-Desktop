@@ -4,14 +4,14 @@ object Strings {
     const val APP_NAME = "Usoamic Wallet"
 
     //    Titles
-    const val TITLE_AUTH_FRAGMENT = "Authorization"
-    const val TITLE_ADD_FRAGMENT = "Add"
-    const val TITLE_PASSWORD_FRAGMENT = "Unlock wallet"
-    const val TITLE_CREATE_FRAGMENT = "Create"
-    const val TITLE_DASHBOARD_FRAGMENT = "Dashboard"
-    const val TITLE_DEPOSIT_FRAGMENT = "Deposit"
-    const val TITLE_WITHDRAW_FRAGMENT = "Withdraw"
-    const val TITLE_HISTORY_FRAGMENT = "History"
+    const val TITLE_AUTH_SCREEN = "Authorization"
+    const val TITLE_ADD_SCREEN = "Add"
+    const val TITLE_PASSWORD_SCREEN = "Unlock wallet"
+    const val TITLE_CREATE_SCREEN = "Create"
+    const val TITLE_DASHBOARD_SCREEN = "Dashboard"
+    const val TITLE_DEPOSIT_SCREEN = "Deposit"
+    const val TITLE_WITHDRAW_SCREEN = "Withdraw"
+    const val TITLE_HISTORY_SCREEN = "History"
     const val TITLE = "Usoamic Wallet"
 
     //    Dashboard
