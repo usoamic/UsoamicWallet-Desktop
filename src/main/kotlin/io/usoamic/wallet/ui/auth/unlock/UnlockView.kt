@@ -24,7 +24,7 @@ class UnlockView : BaseVmView<UnlockViewModel>() {
                 form {
                     fieldset {
                         field(R.string.PASSWORD) {
-                            textfield(propPassword)
+                            passwordfield(propPassword)
                         }
                     }
 
