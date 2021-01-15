@@ -19,7 +19,7 @@ import javafx.scene.text.TextAlignment
 import tornadofx.*
 
 fun ToolBar.materialbutton(icon: MaterialDesignIcon, op: Button.() -> Unit = {}) = Button().also {
-    addClass("icon-only")
+    it.addClass("icon-only")
 
     it.graphic = FontAwesomeFXUtil.getIconView(
         icon = icon,
@@ -31,6 +31,18 @@ fun ToolBar.materialbutton(icon: MaterialDesignIcon, op: Button.() -> Unit = {})
 
     items += it
     op(it)
+}
+
+fun EventTarget.materialbutton(icon: MaterialDesignIcon, op: Button.() -> Unit = {}) = button {
+    addClass("icon-only")
+
+    graphic = FontAwesomeFXUtil.getIconView(
+        icon = icon,
+        color = R.color.TOOLBAR_BUTTON_COLOR
+    )
+    style {
+        backgroundColor += Color.TRANSPARENT
+    }
 }
 
 fun EventTarget.backbuttontoolbar(backAction: () -> Unit = {}): ToolBar = ToolBar().also { toolbar ->
