@@ -1,6 +1,6 @@
 package io.usoamic.wallet.ui.base
 
-import io.usoamic.wallet.domain.models.base.ErrorArguments
+import io.usoamic.wallet.commonslib.models.base.ErrorArguments
 import io.usoamic.wallet.values.R
 import javafx.scene.Node
 import javafx.scene.control.Alert

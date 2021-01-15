@@ -1,7 +1,7 @@
 package io.usoamic.wallet.ui.base
 
 import io.usoamic.validateutilkt.error.*
-import io.usoamic.wallet.domain.models.base.ErrorArguments
+import io.usoamic.wallet.commonslib.models.base.ErrorArguments
 import io.usoamic.wallet.extensions.observe
 import io.usoamic.wallet.values.R
 import javafx.scene.Node
