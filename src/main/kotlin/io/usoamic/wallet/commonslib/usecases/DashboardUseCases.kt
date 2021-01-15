@@ -14,7 +14,7 @@ import javax.inject.Inject
 class DashboardUseCases @Inject constructor(
     private val mTokenRepository: TokenRepository,
     private val mEthereumRepository: EthereumRepository,
-    private val mRealmRepository: DbRepository
+    private val mDbRepository: DbRepository
 ) {
     fun getDashboardInfo(forceUpdate: Boolean): Single<DashboardInfo> {
         return if(forceUpdate) {
@@ -26,8 +26,8 @@ class DashboardUseCases @Inject constructor(
     }
 
     private fun getDashboardInfoFromRealm(): Single<DashboardInfo> {
-        return mRealmRepository.get()?.let {
-            Single.just(it.toDomain())
+        return mDbRepository.getDashboardInfo()?.let {
+            Single.just(it)
         } ?: getDashboardInfoFromNetwork()
     }
 
@@ -47,7 +47,7 @@ class DashboardUseCases @Inject constructor(
             }
         )
             .map {
-                mRealmRepository.update(it.toRealm())
+                mDbRepository.updateDashboardInfo(it)
                 it
             }
     }

@@ -10,7 +10,7 @@ import javax.inject.Inject
 
 class HistoryUseCases @Inject constructor(
     private val mTokenRepository: TokenRepository,
-    private val mRealmRepository: DbRepository
+    private val mDbRepository: DbRepository
 ) {
     fun getTransactions(forceUpdate: Boolean): Single<List<TransactionItem>> {
         return if(forceUpdate) {
@@ -27,9 +27,7 @@ class HistoryUseCases @Inject constructor(
     }
 
     private fun getTransactionsFromRealm(): Single<List<TransactionItem>> {
-        val items = mRealmRepository.getAll().map {
-            it.toDomain()
-        }
+        val items = mDbRepository.getTransactions()
         return if(items.isEmpty()) {
             getTransactionsFromNetwork()
         }
@@ -52,7 +50,7 @@ class HistoryUseCases @Inject constructor(
             }
             .map { items ->
                 items.forEach {
-                    mRealmRepository.add(it.toRealm())
+                    mDbRepository.addTransactionItem(it)
                 }
                 items
             }
