@@ -68,7 +68,8 @@ dependencies {
 
     implementation deps.fontawesomefx.commons
     implementation deps.fontawesomefx.controls
-//    implementation deps.fontawesomefx.fontawesome
+    implementation deps.fontawesomefx.fontawesome
+    implementation deps.fontawesomefx.icons525
     implementation deps.fontawesomefx.materialicons
     implementation deps.fontawesomefx.materialdesignfont
 
