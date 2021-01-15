@@ -1,12 +1,10 @@
 package io.usoamic.wallet.ui.start
 
 import io.usoamic.wallet.UsoamicWallet
-import io.usoamic.wallet.extensions.image
 import io.usoamic.wallet.extensions.observe
 import io.usoamic.wallet.ui.auth.auth.AuthView
 import io.usoamic.wallet.ui.auth.unlock.UnlockView
 import io.usoamic.wallet.ui.base.BaseVmView
-import io.usoamic.wallet.ui.main.wallet.WalletView
 import io.usoamic.wallet.util.BuildConfig
 import io.usoamic.wallet.values.R
 import javafx.geometry.Pos
