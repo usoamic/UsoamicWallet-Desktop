@@ -2,7 +2,6 @@ package io.usoamic.wallet.commonslib.usecases
 
 import io.reactivex.Single
 import io.usoamic.wallet.commonslib.models.history.TransactionItem
-import io.usoamic.wallet.commonslib.models.history.toRealm
 import io.usoamic.wallet.commonslib.repositories.DbRepository
 import io.usoamic.wallet.commonslib.repositories.TokenRepository
 import java.math.BigInteger

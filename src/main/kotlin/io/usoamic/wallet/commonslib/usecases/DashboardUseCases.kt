@@ -3,7 +3,6 @@ package io.usoamic.wallet.commonslib.usecases
 import io.reactivex.Single
 import io.reactivex.functions.Function4
 import io.usoamic.wallet.commonslib.models.dashboard.DashboardInfo
-import io.usoamic.wallet.commonslib.models.dashboard.toRealm
 import io.usoamic.wallet.commonslib.repositories.EthereumRepository
 import io.usoamic.wallet.commonslib.repositories.DbRepository
 import io.usoamic.wallet.commonslib.repositories.TokenRepository
