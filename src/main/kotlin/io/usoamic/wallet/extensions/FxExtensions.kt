@@ -6,11 +6,10 @@ import io.usoamic.wallet.other.liveDataOf
 import io.usoamic.wallet.util.Clipboard
 import io.usoamic.wallet.util.FontAwesomeFXUtil
 import io.usoamic.wallet.values.R
+import javafx.beans.value.ObservableValue
 import javafx.event.EventTarget
 import javafx.geometry.Pos
-import javafx.scene.control.Button
-import javafx.scene.control.Label
-import javafx.scene.control.ToolBar
+import javafx.scene.control.*
 import javafx.scene.layout.HBox
 import javafx.scene.layout.StackPane
 import javafx.scene.paint.Color
@@ -101,5 +100,10 @@ fun Label.copyToClipboardOnClick() {
             Clipboard.copy(text)
         }
     }
+}
 
+fun EventTarget.progressWhen(expr: () -> ObservableValue<Boolean>): Control {
+    return ProgressBar().attachTo(this).also {
+        it.visibleWhen(expr)
+    }
 }
