@@ -33,10 +33,10 @@ class AddView : BaseVmView<AddViewModel>() {
                             textfield(propPrivateKey)
                         }
                         field(R.string.PASSWORD) {
-                            textfield(propPassword)
+                            passwordfield(propPassword)
                         }
                         field(R.string.CONFIRM_PASSWORD) {
-                            textfield(propConfirmPassword)
+                            passwordfield(propConfirmPassword)
                         }
                     }
                     button(R.string.ADD_ACCOUNT) {
