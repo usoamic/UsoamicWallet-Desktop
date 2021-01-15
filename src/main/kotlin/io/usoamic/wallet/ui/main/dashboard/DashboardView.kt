@@ -1,16 +1,16 @@
 package io.usoamic.wallet.ui.main.dashboard
 
 import de.jensd.fx.glyphs.fontawesome.FontAwesomeIcon
-import de.jensd.fx.glyphs.materialdesignicons.MaterialDesignIcon
 import io.usoamic.wallet.UsoamicWallet
-import io.usoamic.wallet.extensions.*
+import io.usoamic.wallet.extensions.informationItem
+import io.usoamic.wallet.extensions.progressWhen
 import io.usoamic.wallet.ui.base.BaseVmView
-import io.usoamic.wallet.util.FontAwesomeFXUtil
+import io.usoamic.wallet.ui.helpers.RefreshableView
 import io.usoamic.wallet.values.R
 import javafx.scene.layout.StackPane
 import tornadofx.*
 
-class DashboardView : BaseVmView<DashboardViewModel>(R.string.TITLE_DASHBOARD_SCREEN) {
+class DashboardView : BaseVmView<DashboardViewModel>(R.string.TITLE_DASHBOARD_SCREEN), RefreshableView {
     override val root: StackPane = stackpane {
         progressWhen {
             viewModel.ldProgress
@@ -45,11 +45,14 @@ class DashboardView : BaseVmView<DashboardViewModel>(R.string.TITLE_DASHBOARD_SC
                 title = R.string.TITLE_DASHBOARD_SUPPLY,
                 message = viewModel.ldSupply
             )
-            // TODO: ADD PANEL WITH REFRESH INDICATOR TO BOTTOM AND REFRESH COUNTDOWN!!!
         }
     }
 
     override fun inject() {
         UsoamicWallet.component.dashboardSubcomponent.create().inject(this)
+    }
+
+    override fun onRefresh() {
+        viewModel.onRefresh()
     }
 }
