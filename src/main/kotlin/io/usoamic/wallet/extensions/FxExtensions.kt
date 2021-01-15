@@ -1,5 +1,7 @@
 package io.usoamic.wallet.extensions
 
+import de.jensd.fx.glyphs.fontawesome.FontAwesomeIcon
+import de.jensd.fx.glyphs.fontawesome.FontAwesomeIconView
 import de.jensd.fx.glyphs.materialdesignicons.MaterialDesignIcon
 import io.usoamic.wallet.other.MutableLiveData
 import io.usoamic.wallet.other.liveDataOf
@@ -19,7 +21,7 @@ import tornadofx.*
 fun ToolBar.materialbutton(icon: MaterialDesignIcon, op: Button.() -> Unit = {}) = Button().also {
     addClass("icon-only")
 
-    it.graphic = FontAwesomeFXUtil.getIcon(
+    it.graphic = FontAwesomeFXUtil.getIconView(
         icon = icon,
         color = R.color.TOOLBAR_BUTTON_COLOR
     )
@@ -51,24 +53,31 @@ fun EventTarget.backbuttontoolbar(backAction: () -> Unit = {}): ToolBar = ToolBa
     addChildIfPossible(toolbar)
 }
 
-fun EventTarget.informationBox(message: String): StackPane = informationBox(
+fun EventTarget.informationBox(message: String): StackPane = informationContainer(
     title = "",
     value = liveDataOf(message),
     isCopyable = false,
-    alignment = TextAlignment.CENTER
+    textAlign = TextAlignment.CENTER
 )
 
-fun EventTarget.informationItem(title: String, message: MutableLiveData<String>, isCopyable: Boolean) = informationBox(
+fun EventTarget.informationItem(
+    icon: FontAwesomeIcon? = null,
+    title: String,
+    message: MutableLiveData<String>,
+    isCopyable: Boolean = false
+) = informationContainer(
+    icon = icon,
     title = title,
     value = message,
-    alignment = TextAlignment.LEFT,
+    textAlign = TextAlignment.LEFT,
     isCopyable = isCopyable
 )
 
-fun EventTarget.informationBox(
+private fun EventTarget.informationContainer(
+    icon: FontAwesomeIcon? = null,
     title: String,
     value: MutableLiveData<String>,
-    alignment: TextAlignment,
+    textAlign: TextAlignment,
     isCopyable: Boolean
 ): StackPane = StackPane().also {
     it.stackpane {
@@ -76,20 +85,44 @@ fun EventTarget.informationBox(
             backgroundColor += Color.WHITE
             borderColor += box(Color.GRAY)
         }
-        vbox {
-            paddingAll = R.dimen.DEFAULT_SMALL_INDENT
-            if (title.isNotEmpty()) {
-                label(title)
+        hbox {
+            alignment = when (textAlign) {
+                TextAlignment.CENTER,
+                TextAlignment.JUSTIFY -> Pos.CENTER
+                TextAlignment.LEFT -> Pos.CENTER_LEFT
+                TextAlignment.RIGHT -> Pos.CENTER_RIGHT
             }
-            label(value) {
-                textAlignment = alignment
-                isWrapText = true
-                if (isCopyable) {
-                    copyToClipboardOnClick()
+
+            if (icon != null) {
+                stackpane {
+                    paddingLeft = R.dimen.DEFAULT_LARGE_INDENT
+                    paddingRight = R.dimen.DEFAULT_INDENT
+
+                    alignment = Pos.CENTER
+
+                    fontawesomeiconview(
+                        image = icon,
+                        color = Color.BLACK
+                    )
+                }
+
+            }
+
+            vbox {
+                paddingAll = R.dimen.DEFAULT_SMALL_INDENT
+                if (title.isNotEmpty()) {
+                    label(title)
+                }
+                label(value) {
+                    textAlignment = textAlign
+
+                    isWrapText = true
+                    if (isCopyable) {
+                        copyToClipboardOnClick()
+                    }
                 }
             }
         }
-
     }
     addChildIfPossible(it)
 }
@@ -105,5 +138,18 @@ fun Label.copyToClipboardOnClick() {
 fun EventTarget.progressWhen(expr: () -> ObservableValue<Boolean>): Control {
     return ProgressBar().attachTo(this).also {
         it.visibleWhen(expr)
+    }
+}
+
+fun EventTarget.fontawesomeiconview(
+    image: FontAwesomeIcon,
+    color: Color,
+    size: Int = 20,
+    op: FontAwesomeIconView.() -> Unit = {}
+): FontAwesomeIconView {
+    return FontAwesomeIconView(image).also {
+        it.glyphSize = size
+        it.fill = color
+        it.attachTo(this, op)
     }
 }
