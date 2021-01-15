@@ -1,4 +1,4 @@
-package io.usoamic.wallet.exceptions
+package io.usoamic.wallet.commonslib.extensions
 
 import java.math.BigInteger
 

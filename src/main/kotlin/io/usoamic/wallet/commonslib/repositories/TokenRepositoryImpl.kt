@@ -7,8 +7,8 @@ import io.usoamic.usoamickt.util.Coin
 import io.usoamic.wallet.commonslib.models.history.TransactionItem
 import io.usoamic.wallet.commonslib.models.history.toDomain
 import io.usoamic.wallet.commonslib.models.withdraw.WithdrawData
-import io.usoamic.wallet.exceptions.ContractNullException
-import io.usoamic.wallet.exceptions.orZero
+import io.usoamic.wallet.commonslib.exceptions.ContractNullException
+import io.usoamic.wallet.commonslib.extensions.orZero
 import io.usoamic.wallet.extensions.addDebugDelay
 import java.math.BigDecimal
 import java.math.BigInteger

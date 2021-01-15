@@ -1,6 +1,6 @@
 package io.usoamic.wallet.commons.impl
 
-import io.usoamic.wallet.exceptions.PreferenceKeyNotFoundException
+import io.usoamic.wallet.commonslib.exceptions.PreferenceKeyNotFoundException
 import io.usoamic.wallet.commonslib.util.api.PreferencesCompat
 import java.util.prefs.Preferences
 import javax.inject.Inject
