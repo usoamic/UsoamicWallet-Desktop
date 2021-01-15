@@ -1,10 +1,7 @@
 package io.usoamic.wallet.ui.auth.add
 
 import io.usoamic.wallet.UsoamicWallet
-import io.usoamic.wallet.extensions.backbuttontoolbar
-import io.usoamic.wallet.extensions.observe
-import io.usoamic.wallet.extensions.replaceWithSlideLeft
-import io.usoamic.wallet.extensions.replaceWithSlideRight
+import io.usoamic.wallet.extensions.*
 import io.usoamic.wallet.ui.auth.auth.AuthView
 import io.usoamic.wallet.ui.auth.unlock.UnlockView
 import io.usoamic.wallet.ui.base.BaseVmView
@@ -18,8 +15,8 @@ class AddView : BaseVmView<AddViewModel>() {
     private val propConfirmPassword = stringProperty("")
 
     override val root: StackPane = stackpane {
-        progressbar {
-            visibleWhen { viewModel.ldProgress }
+        progressWhen {
+            viewModel.ldProgress
         }
         vbox {
             hiddenWhen { viewModel.ldProgress }

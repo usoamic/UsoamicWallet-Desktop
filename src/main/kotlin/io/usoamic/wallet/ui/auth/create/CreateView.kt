@@ -11,8 +11,8 @@ import tornadofx.*
 
 class CreateView : BaseVmView<CreateViewModel>() {
     override val root: StackPane = stackpane {
-        progressbar {
-            visibleWhen { viewModel.ldProgress }
+        progressWhen {
+            viewModel.ldProgress
         }
         vbox {
             hiddenWhen { viewModel.ldProgress }
