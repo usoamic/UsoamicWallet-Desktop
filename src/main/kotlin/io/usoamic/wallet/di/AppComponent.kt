@@ -6,7 +6,6 @@ import io.usoamic.wallet.di.modules.RepositoryModule
 import io.usoamic.wallet.di.modules.UsoamicModule
 import io.usoamic.wallet.commonslib.di.scopes.AppScope
 import io.usoamic.wallet.di.subcomponents.add.AddSubcomponent
-import io.usoamic.wallet.di.subcomponents.auth.AuthSubcomponent
 import io.usoamic.wallet.di.subcomponents.create.CreateSubcomponent
 import io.usoamic.wallet.di.subcomponents.dashboard.DashboardSubcomponent
 import io.usoamic.wallet.di.subcomponents.deposit.DepositSubcomponent
@@ -20,7 +19,6 @@ import javax.inject.Singleton
 @AppScope
 @Component(modules = [UsoamicModule::class, RepositoryModule::class, CompatModule::class])
 interface AppComponent {
-    val authSubcomponent: AuthSubcomponent
     val addSubcomponent: AddSubcomponent.Factory
     val unlockSubcomponent: UnlockSubcomponent.Factory
 
