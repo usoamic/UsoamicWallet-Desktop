@@ -24,8 +24,6 @@ class HistoryView : BaseVmView<HistoryViewModel>(R.string.TITLE_HISTORY_SCREEN) 
         vbox {
             hiddenWhen { viewModel.ldProgress }
 
-            //paddingTop = R.dimen.DEFAULT_INDENT
-
             tableview<TransactionsInfo> {
                 items = historyItems
 
