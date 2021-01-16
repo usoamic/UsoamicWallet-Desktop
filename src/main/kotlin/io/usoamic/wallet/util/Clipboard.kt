@@ -1,8 +1,8 @@
 package io.usoamic.wallet.util
 
+import io.usoamic.wallet.helpers.informationMessage
 import io.usoamic.wallet.values.R
 import javafx.scene.input.ClipboardContent
-import tornadofx.information
 import javafx.scene.input.Clipboard as FxClipboard
 
 
@@ -13,9 +13,6 @@ object Clipboard {
     fun copy(content: String) {
         clipboardContent.putString(content)
         FxClipboard.getSystemClipboard().setContent(clipboardContent)
-        information(
-            header = "",
-            content = R.string.COPIED_TO_CLIPBOARD
-        )
+        informationMessage(R.string.COPIED_TO_CLIPBOARD)
     }
 }
