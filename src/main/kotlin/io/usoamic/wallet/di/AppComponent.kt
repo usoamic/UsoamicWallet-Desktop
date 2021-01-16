@@ -1,10 +1,10 @@
 package io.usoamic.wallet.di
 
 import dagger.Component
+import io.usoamic.wallet.commonslib.di.scopes.AppScope
 import io.usoamic.wallet.di.modules.CompatModule
 import io.usoamic.wallet.di.modules.RepositoryModule
 import io.usoamic.wallet.di.modules.UsoamicModule
-import io.usoamic.wallet.commonslib.di.scopes.AppScope
 import io.usoamic.wallet.di.subcomponents.add.AddSubcomponent
 import io.usoamic.wallet.di.subcomponents.create.CreateSubcomponent
 import io.usoamic.wallet.di.subcomponents.dashboard.DashboardSubcomponent

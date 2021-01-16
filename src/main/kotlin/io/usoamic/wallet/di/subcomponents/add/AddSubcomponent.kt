@@ -4,12 +4,10 @@ import dagger.Subcomponent
 import io.usoamic.wallet.commonslib.di.scopes.AuthScope
 import io.usoamic.wallet.ui.auth.add.AddView
 
-//import io.usoamic.wallet.ui.auth.add.AddFragment
-
 @AuthScope
 @Subcomponent
 interface AddSubcomponent {
-    fun inject(addFragment: AddView)
+    fun inject(addView: AddView)
 
     @Subcomponent.Factory
     interface Factory {

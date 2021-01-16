@@ -7,7 +7,7 @@ import io.usoamic.wallet.ui.auth.create.CreateView
 @AuthScope
 @Subcomponent
 interface CreateSubcomponent {
-    fun inject(addFragment: CreateView)
+    fun inject(createView: CreateView)
 
     @Subcomponent.Factory
     interface Factory {
