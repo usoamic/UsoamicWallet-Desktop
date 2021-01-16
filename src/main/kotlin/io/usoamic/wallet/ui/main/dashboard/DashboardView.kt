@@ -56,6 +56,7 @@ class DashboardView : BaseVmView<DashboardViewModel>(R.string.TITLE_DASHBOARD_SC
     }
 
     override fun onRefresh() {
+        super.onRefresh()
         viewModel.onRefresh()
     }
 }
