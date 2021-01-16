@@ -69,6 +69,7 @@ object Strings {
     const val ADDRESS = "Address"
     const val AUTO = "Auto"
     const val VALUE = "Value"
+    const val GAS_PRICE = "Gas Price"
     const val PRIVATE_KEY = "Private Key"
     const val COPIED_TO_CLIPBOARD = "Copied To Clipboard"
     const val PASSWORD = "Password"
