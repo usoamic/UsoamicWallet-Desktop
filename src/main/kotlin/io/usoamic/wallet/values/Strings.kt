@@ -60,6 +60,13 @@ object Strings {
     const val GP_100 = "100 Gwei"
     const val GP_120 = "120 Gwei"
 
+    // Table
+    const val ID = "ID"
+    const val TYPE = "Type"
+    const val AMOUNT = "Value"
+    const val DATE = "Date"
+    const val TX_ID = "TxID"
+
     //    Other
     const val ERROR = "Error"
     const val NO_DATA = "No Data"
@@ -74,4 +81,5 @@ object Strings {
     const val COPIED_TO_CLIPBOARD = "Copied To Clipboard"
     const val PASSWORD = "Password"
     const val CONFIRM_PASSWORD = "Confirm Password"
+    const val TICKER = "USO"
 }

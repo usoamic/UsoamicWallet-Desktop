@@ -2,7 +2,10 @@ package io.usoamic.wallet.other
 
 import io.usoamic.wallet.util.ResourcesUtil
 import io.usoamic.wallet.values.R
-import tornadofx.*
+import javafx.geometry.Pos
+import tornadofx.Stylesheet
+import tornadofx.px
+import tornadofx.setStageIcon
 
 class Styles : Stylesheet() {
     init {
@@ -17,11 +20,15 @@ class Styles : Stylesheet() {
             maxHeight = HEIGHT.px
         }
 
+        tableColumn {
+            alignment = Pos.BASELINE_CENTER
+        }
+
         setStageIcon(ResourcesUtil.getImage(R.image.IC_LAUNCHER))
     }
 
     companion object {
-        const val WIDTH = 400.0
+        const val WIDTH = 600.0
         const val HEIGHT = 400.0
     }
 }
