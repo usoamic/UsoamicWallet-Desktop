@@ -32,8 +32,11 @@ class DepositView : BaseVmView<DepositViewModel>(R.string.TITLE_DEPOSIT_SCREEN) 
 
             label(viewModel.ldAddress) {
                 textAlignment = TextAlignment.CENTER
-                paddingTop = R.dimen.DEFAULT_SMALL_INDENT
+                paddingTop = R.dimen.DEFAULT_INDENT
                 isWrapText = true
+                style {
+                    fontSize = 15.px
+                }
                 copyToClipboardOnClick()
             }
         }

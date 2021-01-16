@@ -8,8 +8,10 @@ import tornadofx.paddingLeft
 import tornadofx.paddingRight
 
 fun ImageView.fitToHalfWindow() {
-    fitWidth = Styles.WIDTH /2
-    fitHeight = Styles.HEIGHT /2
+    val size = Styles.WIDTH.coerceAtMost(Styles.HEIGHT) / 2
+
+    fitWidth = size
+    fitHeight = size
 }
 
 fun Region.setDefaultPaddings() {
