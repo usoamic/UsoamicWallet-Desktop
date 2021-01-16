@@ -1,14 +1,26 @@
 package io.usoamic.wallet.commonslib.extensions
 
+import io.usoamic.usoamickt.util.Coin
 import java.math.BigDecimal
 import java.math.BigInteger
 
-fun BigInteger?.orZero() = this ?: BigInteger.ZERO
+fun BigInteger?.orZero(): BigInteger = this ?: BigInteger.ZERO
 
-fun BigDecimal.toBeautyString(): String {
-    return stripTrailingZeros().toPlainString()
+fun Coin.toBeautyString(appendix: String = ""): String {
+    return toBigDecimal().toBeautyString(appendix)
 }
 
-fun BigInteger.toBeautyString(): String {
-    return toString()
+fun BigDecimal.toBeautyString(appendix: String = ""): String {
+    return buildString {
+        append(this@toBeautyString.stripTrailingZeros().toPlainString())
+        append(" ")
+        append(appendix)
+    }
+}
+
+fun BigInteger.toBeautyString(appendix: String = ""): String {
+    return buildString {
+        append(this@toBeautyString.toString())
+        append(appendix)
+    }
 }
