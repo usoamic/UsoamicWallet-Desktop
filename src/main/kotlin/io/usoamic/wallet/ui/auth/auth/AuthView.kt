@@ -1,6 +1,6 @@
 package io.usoamic.wallet.ui.auth.auth
 
-import io.usoamic.wallet.extensions.replaceWithSlideLeft
+import io.usoamic.wallet.extensions.fx.replaceWithSlideLeft
 import io.usoamic.wallet.ui.auth.add.AddView
 import io.usoamic.wallet.ui.auth.create.CreateView
 import io.usoamic.wallet.ui.base.BaseView

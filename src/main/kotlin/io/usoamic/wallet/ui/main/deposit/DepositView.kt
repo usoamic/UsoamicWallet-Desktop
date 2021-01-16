@@ -1,10 +1,10 @@
 package io.usoamic.wallet.ui.main.deposit
 
 import io.usoamic.wallet.UsoamicWallet
-import io.usoamic.wallet.extensions.copyToClipboardOnClick
-import io.usoamic.wallet.extensions.fitToHalfWindow
-import io.usoamic.wallet.extensions.progressWhen
-import io.usoamic.wallet.extensions.setDefaultPaddings
+import io.usoamic.wallet.extensions.fx.copyToClipboardOnClick
+import io.usoamic.wallet.extensions.fx.fitToHalfWindow
+import io.usoamic.wallet.extensions.fx.progressWhen
+import io.usoamic.wallet.extensions.fx.setDefaultPaddings
 import io.usoamic.wallet.ui.base.BaseVmView
 import io.usoamic.wallet.values.R
 import javafx.geometry.Pos

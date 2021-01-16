@@ -1,7 +1,12 @@
 package io.usoamic.wallet.ui.auth.create
 
 import io.usoamic.wallet.UsoamicWallet
-import io.usoamic.wallet.extensions.*
+import io.usoamic.wallet.customviews.backbuttontoolbar
+import io.usoamic.wallet.customviews.informationBox
+import io.usoamic.wallet.customviews.informationItem
+import io.usoamic.wallet.extensions.fx.progressWhen
+import io.usoamic.wallet.extensions.fx.replaceWithSlideLeft
+import io.usoamic.wallet.extensions.fx.replaceWithSlideRight
 import io.usoamic.wallet.ui.auth.add.AddView
 import io.usoamic.wallet.ui.auth.auth.AuthView
 import io.usoamic.wallet.ui.base.BaseVmView

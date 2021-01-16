@@ -1,9 +1,7 @@
 package io.usoamic.wallet.ui.main.wallet
 
-import io.usoamic.wallet.UsoamicWallet
-import io.usoamic.wallet.extensions.refreshbuttontoolbar
+import io.usoamic.wallet.customviews.refreshbuttontoolbar
 import io.usoamic.wallet.ui.base.BaseView
-import io.usoamic.wallet.ui.base.BaseVmView
 import io.usoamic.wallet.ui.main.dashboard.DashboardView
 import io.usoamic.wallet.ui.main.deposit.DepositView
 import io.usoamic.wallet.ui.main.history.HistoryView

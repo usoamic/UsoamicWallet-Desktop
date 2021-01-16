@@ -2,15 +2,18 @@ package io.usoamic.wallet.ui.main.dashboard
 
 import de.jensd.fx.glyphs.fontawesome.FontAwesomeIcon
 import io.usoamic.wallet.UsoamicWallet
-import io.usoamic.wallet.extensions.informationItem
-import io.usoamic.wallet.extensions.progressWhen
+import io.usoamic.wallet.customviews.informationItem
+import io.usoamic.wallet.extensions.fx.progressWhen
+import io.usoamic.wallet.extensions.fx.setDefaultPaddings
 import io.usoamic.wallet.ui.base.BaseVmView
-import io.usoamic.wallet.ui.helpers.RefreshableView
 import io.usoamic.wallet.values.R
 import javafx.scene.layout.StackPane
-import tornadofx.*
+import tornadofx.hiddenWhen
+import tornadofx.pane
+import tornadofx.stackpane
+import tornadofx.vbox
 
-class DashboardView : BaseVmView<DashboardViewModel>(R.string.TITLE_DASHBOARD_SCREEN), RefreshableView {
+class DashboardView : BaseVmView<DashboardViewModel>(R.string.TITLE_DASHBOARD_SCREEN) {
     override val root: StackPane = stackpane {
         progressWhen {
             viewModel.ldProgress
@@ -18,8 +21,8 @@ class DashboardView : BaseVmView<DashboardViewModel>(R.string.TITLE_DASHBOARD_SC
         vbox(R.dimen.DEFAULT_INDENT) {
             hiddenWhen { viewModel.ldProgress }
 
-            paddingLeft = R.dimen.DEFAULT_INDENT
-            paddingRight = R.dimen.DEFAULT_INDENT
+            setDefaultPaddings()
+
             pane()
 
             informationItem(

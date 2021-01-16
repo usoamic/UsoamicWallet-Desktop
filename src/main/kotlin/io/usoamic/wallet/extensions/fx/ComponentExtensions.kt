@@ -1,4 +1,4 @@
-package io.usoamic.wallet.extensions
+package io.usoamic.wallet.extensions.fx
 
 import javafx.scene.image.Image
 import tornadofx.Component
