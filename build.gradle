@@ -95,6 +95,8 @@ dependencies {
     compile deps.fontawesomefx.materialicons
     compile deps.fontawesomefx.materialdesignfont
 
+    compile deps.sqldelight.driver
+
     compile deps.dagger.runtime
     kapt deps.dagger.compiler
 

@@ -37,6 +37,7 @@ deps.zxing = "com.google.zxing:core:$versions.zxing"
 
 def sqldelight = [:]
 sqldelight.plugin = "com.squareup.sqldelight:gradle-plugin:$versions.sqldelight"
+sqldelight.driver = "com.squareup.sqldelight:sqlite-driver:$versions.sqldelight"
 deps.sqldelight = sqldelight
 
 def openjfx = [:]
