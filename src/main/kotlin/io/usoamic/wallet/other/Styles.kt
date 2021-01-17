@@ -24,7 +24,7 @@ class Styles : Stylesheet() {
             alignment = Pos.BASELINE_CENTER
         }
 
-        setStageIcon(ResourcesUtil.getImage(R.image.IC_LAUNCHER))
+        setStageIcon(ResourcesUtil.getImage(R.image.IC_USOAMIC))
     }
 
     companion object {
