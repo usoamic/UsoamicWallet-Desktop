@@ -16,7 +16,7 @@ class HistoryUseCases @Inject constructor(
             getTransactionsFromNetwork()
         }
         else {
-            getTransactionsFromRealm()
+            getTransactionsFromCache()
         }
             .map { items ->
                 items.sortedByDescending {
@@ -25,7 +25,7 @@ class HistoryUseCases @Inject constructor(
             }
     }
 
-    private fun getTransactionsFromRealm(): Single<List<TransactionItem>> {
+    private fun getTransactionsFromCache(): Single<List<TransactionItem>> {
         val items = mDbRepository.getTransactions()
         return if(items.isEmpty()) {
             getTransactionsFromNetwork()

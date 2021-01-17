@@ -2,6 +2,7 @@ package io.usoamic.wallet.di.modules
 
 import dagger.Binds
 import dagger.Module
+import io.usoamic.wallet.commons.impl.DbRepositoryImpl
 import io.usoamic.wallet.commonslib.repositories.*
 
 @Module

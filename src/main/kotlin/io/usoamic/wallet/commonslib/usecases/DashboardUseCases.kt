@@ -1,10 +1,9 @@
 package io.usoamic.wallet.commonslib.usecases
 
 import io.reactivex.Single
-import io.reactivex.functions.Function4
 import io.usoamic.wallet.commonslib.models.dashboard.DashboardInfo
-import io.usoamic.wallet.commonslib.repositories.EthereumRepository
 import io.usoamic.wallet.commonslib.repositories.DbRepository
+import io.usoamic.wallet.commonslib.repositories.EthereumRepository
 import io.usoamic.wallet.commonslib.repositories.TokenRepository
 import java.math.BigDecimal
 import java.math.BigInteger
@@ -20,11 +19,11 @@ class DashboardUseCases @Inject constructor(
             getDashboardInfoFromNetwork()
         }
         else {
-            getDashboardInfoFromRealm()
+            getDashboardInfoFromCache()
         }
     }
 
-    private fun getDashboardInfoFromRealm(): Single<DashboardInfo> {
+    private fun getDashboardInfoFromCache(): Single<DashboardInfo> {
         return mDbRepository.getDashboardInfo()?.let {
             Single.just(it)
         } ?: getDashboardInfoFromNetwork()
@@ -36,7 +35,7 @@ class DashboardUseCases @Inject constructor(
             mTokenRepository.usoBalance,
             mEthereumRepository.ethHeight,
             mTokenRepository.usoSupply,
-            Function4 { ethBalance: BigDecimal, usoBalance: BigDecimal, ethHeight: BigInteger, usoSupply: BigDecimal ->
+            { ethBalance: BigDecimal, usoBalance: BigDecimal, ethHeight: BigInteger, usoSupply: BigDecimal ->
                 DashboardInfo(
                     ethBalance,
                     usoBalance,
