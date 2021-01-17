@@ -12,6 +12,7 @@ versions.rxkotlin2 = '2.4.0'
 
 versions.usoamickt = '1.2.1'
 versions.validateutilkt = '1.0.0'
+versions.usoamic_wallet_commons = '1.0.0-2'
 versions.gson = "2.8.5"
 versions.web3j = "4.8.1"
 versions.dagger = '2.27'
@@ -88,6 +89,7 @@ deps.junit = junit
 def usoamic = [:]
 usoamic.kt = "com.github.usoamic:usoamickt:v$versions.usoamickt"
 usoamic.validateutilkt = "com.github.usoamic:validateutil:v$versions.validateutilkt"
+usoamic.usoamic_wallet_commons = "com.github.usoamic:usoamic-wallet-commons:v$versions.usoamic_wallet_commons"
 deps.usoamic = usoamic
 
 ext.deps = deps

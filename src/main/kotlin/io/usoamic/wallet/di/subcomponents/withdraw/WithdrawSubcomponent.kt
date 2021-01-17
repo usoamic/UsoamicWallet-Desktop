@@ -1,7 +1,7 @@
 package io.usoamic.wallet.di.subcomponents.withdraw
 
 import dagger.Subcomponent
-import io.usoamic.wallet.commonslib.di.scopes.WalletScope
+import io.usoamic.wallet.commons.di.scopes.WalletScope
 import io.usoamic.wallet.ui.main.withdraw.WithdrawView
 
 @WalletScope

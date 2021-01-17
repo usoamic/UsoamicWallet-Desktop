@@ -2,8 +2,8 @@ package io.usoamic.wallet.di.modules
 
 import dagger.Binds
 import dagger.Module
-import io.usoamic.wallet.commons.impl.DbRepositoryImpl
-import io.usoamic.wallet.commonslib.repositories.*
+import io.usoamic.wallet.commons.DbRepositoryImpl
+import io.usoamic.wallet.commons.repositories.*
 
 @Module
 abstract class RepositoryModule {

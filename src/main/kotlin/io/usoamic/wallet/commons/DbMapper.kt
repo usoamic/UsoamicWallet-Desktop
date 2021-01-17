@@ -1,9 +1,9 @@
-package io.usoamic.wallet.commons.impl
+package io.usoamic.wallet.commons
 
 import io.usoamic.usoamickt.util.Coin
-import io.usoamic.wallet.commonslib.models.dashboard.DashboardInfo
-import io.usoamic.wallet.commonslib.models.history.TransactionItem
-import io.usoamic.wallet.commonslib.models.history.TransactionType
+import io.usoamic.wallet.commons.models.dashboard.DashboardInfo
+import io.usoamic.wallet.commons.models.history.TransactionItem
+import io.usoamic.wallet.commons.models.history.TransactionType
 import io.usoamic.wallet.database.DashboardInfoEntity
 import io.usoamic.wallet.database.TransactionItemEntity
 import java.math.BigDecimal

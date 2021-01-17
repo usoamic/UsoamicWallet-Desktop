@@ -1,7 +1,7 @@
 package io.usoamic.wallet.ui.main.deposit
 
 import com.google.zxing.common.BitMatrix
-import io.usoamic.wallet.commonslib.usecases.DepositUseCases
+import io.usoamic.wallet.commons.usecases.DepositUseCases
 import io.usoamic.wallet.extensions.addSchedulers
 import io.usoamic.wallet.extensions.toImage
 import io.usoamic.wallet.other.MutableLiveData

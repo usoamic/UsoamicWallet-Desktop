@@ -1,7 +1,7 @@
 package io.usoamic.wallet.di.subcomponents.unlock
 
 import dagger.Subcomponent
-import io.usoamic.wallet.commonslib.di.scopes.AuthScope
+import io.usoamic.wallet.commons.scopes.AuthScope
 import io.usoamic.wallet.ui.auth.unlock.UnlockView
 
 @AuthScope

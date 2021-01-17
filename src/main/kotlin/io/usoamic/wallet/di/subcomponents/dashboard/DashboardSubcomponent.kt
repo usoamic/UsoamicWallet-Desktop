@@ -1,8 +1,7 @@
 package io.usoamic.wallet.di.subcomponents.dashboard
 
 import dagger.Subcomponent
-import io.usoamic.wallet.commonslib.di.scopes.WalletScope
-import io.usoamic.wallet.ui.auth.create.CreateView
+import io.usoamic.wallet.commons.di.scopes.WalletScope
 import io.usoamic.wallet.ui.main.dashboard.DashboardView
 
 @WalletScope

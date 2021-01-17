@@ -1,10 +1,10 @@
 package io.usoamic.wallet.ui.auth.add
 
+import io.usoamic.wallet.commons.usecases.AddAccountUseCases
 import io.usoamic.wallet.extensions.addSchedulers
 import io.usoamic.wallet.extensions.emit
 import io.usoamic.wallet.other.LiveEvent
 import io.usoamic.wallet.ui.base.BaseViewModel
-import io.usoamic.wallet.commonslib.usecases.AddAccountUseCases
 import javax.inject.Inject
 
 class AddViewModel @Inject constructor(

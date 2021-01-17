@@ -1,8 +1,8 @@
-package io.usoamic.wallet.commons.impl
+package io.usoamic.wallet.commons
 
-import io.usoamic.wallet.commonslib.models.dashboard.DashboardInfo
-import io.usoamic.wallet.commonslib.models.history.TransactionItem
-import io.usoamic.wallet.commonslib.repositories.DbRepository
+import io.usoamic.wallet.commons.models.dashboard.DashboardInfo
+import io.usoamic.wallet.commons.models.history.TransactionItem
+import io.usoamic.wallet.commons.repositories.DbRepository
 import io.usoamic.wallet.database.Database
 import javax.inject.Inject
 

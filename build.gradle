@@ -81,6 +81,7 @@ dependencies {
 
     compile deps.usoamic.kt
     compile deps.usoamic.validateutilkt
+    compile deps.usoamic.usoamic_wallet_commons
 
     compile deps.tornado.fx
 

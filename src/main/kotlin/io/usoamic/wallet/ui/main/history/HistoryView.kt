@@ -1,7 +1,7 @@
 package io.usoamic.wallet.ui.main.history
 
 import io.usoamic.wallet.UsoamicWallet
-import io.usoamic.wallet.commonslib.models.history.TransactionItem
+import io.usoamic.wallet.commons.models.history.TransactionItem
 import io.usoamic.wallet.extensions.fx.progressWhen
 import io.usoamic.wallet.extensions.observe
 import io.usoamic.wallet.ui.base.BaseVmView

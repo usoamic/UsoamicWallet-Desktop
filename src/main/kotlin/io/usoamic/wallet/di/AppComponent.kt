@@ -1,7 +1,7 @@
 package io.usoamic.wallet.di
 
 import dagger.Component
-import io.usoamic.wallet.commonslib.di.scopes.AppScope
+import io.usoamic.wallet.commons.scopes.AppScope
 import io.usoamic.wallet.di.modules.CompatModule
 import io.usoamic.wallet.di.modules.DatabaseModule
 import io.usoamic.wallet.di.modules.RepositoryModule

@@ -1,7 +1,7 @@
 package io.usoamic.wallet.ui.main.withdraw
 
-import io.usoamic.wallet.commonslib.models.withdraw.WithdrawCoin
-import io.usoamic.wallet.commonslib.usecases.WithdrawUseCases
+import io.usoamic.wallet.commons.models.withdraw.WithdrawCoin
+import io.usoamic.wallet.commons.usecases.WithdrawUseCases
 import io.usoamic.wallet.extensions.addSchedulers
 import io.usoamic.wallet.other.LiveEvent
 import io.usoamic.wallet.ui.base.BaseViewModel

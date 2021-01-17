@@ -2,10 +2,10 @@ package io.usoamic.wallet.di.modules
 
 import dagger.Binds
 import dagger.Module
-import io.usoamic.wallet.commons.impl.DateCompatImpl
-import io.usoamic.wallet.commons.impl.PreferencesCompatImpl
-import io.usoamic.wallet.commonslib.util.api.DateCompat
-import io.usoamic.wallet.commonslib.util.api.PreferencesCompat
+import io.usoamic.wallet.commons.DateCompatImpl
+import io.usoamic.wallet.commons.PreferencesCompatImpl
+import io.usoamic.wallet.commons.api.DateCompat
+import io.usoamic.wallet.commons.api.PreferencesCompat
 
 @Module
 abstract class CompatModule {

@@ -1,11 +1,10 @@
 package io.usoamic.wallet.ui.auth.unlock
 
+import io.usoamic.wallet.commons.usecases.UnlockUseCases
 import io.usoamic.wallet.extensions.addSchedulers
-
 import io.usoamic.wallet.extensions.emit
 import io.usoamic.wallet.other.LiveEvent
 import io.usoamic.wallet.ui.base.BaseViewModel
-import io.usoamic.wallet.commonslib.usecases.UnlockUseCases
 import javax.inject.Inject
 
 class UnlockViewModel @Inject constructor(

@@ -3,7 +3,7 @@ package io.usoamic.wallet.ui.base
 import io.reactivex.Single
 import io.reactivex.disposables.CompositeDisposable
 import io.reactivex.disposables.Disposable
-import io.usoamic.wallet.commonslib.models.base.ErrorArguments
+import io.usoamic.wallet.commons.models.base.ErrorArguments
 import io.usoamic.wallet.other.MutableLiveData
 import tornadofx.ViewModel
 

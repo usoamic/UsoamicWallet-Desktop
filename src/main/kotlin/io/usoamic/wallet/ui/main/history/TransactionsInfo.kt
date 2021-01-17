@@ -1,8 +1,8 @@
 package io.usoamic.wallet.ui.main.history
 
-import io.usoamic.wallet.commonslib.extensions.toBeautyString
-import io.usoamic.wallet.commonslib.models.history.TransactionItem
-import io.usoamic.wallet.commonslib.models.history.TransactionType
+import io.usoamic.wallet.commons.extensions.toBeautyString
+import io.usoamic.wallet.commons.models.history.TransactionItem
+import io.usoamic.wallet.commons.models.history.TransactionType
 import io.usoamic.wallet.values.R
 import java.time.Instant
 import java.time.LocalDateTime

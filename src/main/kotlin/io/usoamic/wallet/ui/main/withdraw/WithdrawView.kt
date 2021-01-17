@@ -1,7 +1,7 @@
 package io.usoamic.wallet.ui.main.withdraw
 
 import io.usoamic.wallet.UsoamicWallet
-import io.usoamic.wallet.commonslib.models.withdraw.WithdrawCoin
+import io.usoamic.wallet.commons.models.withdraw.WithdrawCoin
 import io.usoamic.wallet.extensions.fx.clear
 import io.usoamic.wallet.extensions.fx.progressWhen
 import io.usoamic.wallet.extensions.observe

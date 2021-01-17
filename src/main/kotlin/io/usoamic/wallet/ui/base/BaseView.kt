@@ -1,10 +1,11 @@
 package io.usoamic.wallet.ui.base
 
-import io.usoamic.wallet.commonslib.models.base.ErrorArguments
+import io.usoamic.wallet.commons.models.base.ErrorArguments
 import io.usoamic.wallet.values.R
 import javafx.scene.Node
 import javafx.scene.control.Alert
-import tornadofx.*
+import tornadofx.View
+import tornadofx.alert
 
 abstract class BaseView(title: String? = R.string.APP_NAME, icon: Node? = null) : View(title, icon) {
     init {
