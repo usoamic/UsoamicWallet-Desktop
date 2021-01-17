@@ -58,17 +58,21 @@ private fun EventTarget.informationContainer(
                     paddingRight = R.dimen.DEFAULT_INDENT
 
                     alignment = Pos.CENTER
+                    prefWidth = 60.0
 
                     fontawesomeiconview(
                         image = icon,
                         color = Color.BLACK
-                    )
+                    ) {
+                        alignment = Pos.CENTER
+                    }
                 }
 
             }
 
             vbox {
                 paddingAll = R.dimen.DEFAULT_SMALL_INDENT
+
                 if (title.isNotEmpty()) {
                     label(title)
                 }
