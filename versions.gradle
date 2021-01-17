@@ -27,7 +27,7 @@ versions.fafx_materialicons = "2.2.0-5"
 versions.fafx_materialdesignfont = "1.7.22-4"
 versions.openjfx_plugin = "0.0.9"
 versions.openjfx = "15.0.1"
-
+versions.sqldelight = "1.4.4"
 ext.versions = versions
 
 def deps = [:]
@@ -35,6 +35,9 @@ deps.gson = "com.google.code.gson:gson:$versions.gson"
 deps.web3j = "org.web3j:core:$versions.web3j"
 deps.zxing = "com.google.zxing:core:$versions.zxing"
 
+def sqldelight = [:]
+sqldelight.plugin = "com.squareup.sqldelight:gradle-plugin:$versions.sqldelight"
+deps.sqldelight = sqldelight
 
 def openjfx = [:]
 openjfx.plugin = "org.openjfx.javafxplugin:$versions.openjfx_plugin"
