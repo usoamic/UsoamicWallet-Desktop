@@ -6,9 +6,7 @@ import java.util.prefs.Preferences
 import javax.inject.Inject
 
 class PreferencesCompatImpl @Inject constructor() : PreferencesCompat {
-    private val preferences: Preferences by lazy {
-        Preferences.userNodeForPackage(this::class.java)
-    }
+    private val preferences: Preferences get() = Preferences.userNodeForPackage(this::class.java)
 
     override fun getString(key: String): String {
         preferences.get(key, null)?.let {
