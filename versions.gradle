@@ -25,7 +25,9 @@ versions.fafx_fontawesome = "4.7.0-11"
 versions.fafx_icons525 = "3.0.0-11"
 versions.fafx_materialicons = "2.2.0-5"
 versions.fafx_materialdesignfont = "1.7.22-4"
-versions.openjfx_plugin = "0.0.8"
+versions.openjfx_plugin = "0.0.9"
+versions.openjfx = "15.0.1"
+
 ext.versions = versions
 
 def deps = [:]
@@ -36,8 +38,10 @@ deps.zxing = "com.google.zxing:core:$versions.zxing"
 
 def openjfx = [:]
 openjfx.plugin = "org.openjfx.javafxplugin:$versions.openjfx_plugin"
+openjfx.controls = "org.openjfx:javafx-controls:$versions.openjfx"
+openjfx.graphics = "org.openjfx:javafx-graphics:$versions.openjfx"
+openjfx.swing = "org.openjfx:javafx-swing:$versions.openjfx"
 deps.openjfx = openjfx
-
 
 def fontawesomefx = [:]
 fontawesomefx.commons = "de.jensd:fontawesomefx-commons:$versions.fafx_commons"
@@ -64,6 +68,7 @@ rx.javafx = "io.reactivex.rxjava2:rxjavafx:$versions.rxjavafx"
 deps.rx = rx
 
 def kotlin = [:]
+kotlin.reflect = "org.jetbrains.kotlin:kotlin-reflect:$versions.kotlin"
 kotlin.stdlib = "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$versions.kotlin"
 kotlin.jnit = "org.jetbrains.kotlin:kotlin-test-junit:$versions.kotlin"
 kotlin.plugin = "org.jetbrains.kotlin:kotlin-gradle-plugin:$versions.kotlin"
