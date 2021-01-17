@@ -11,4 +11,4 @@ Desktop (Tornado FX) Wallet for Usoamic Token.
 - JSON: https://github.com/google/gson
 
 ## Screenshots
-![Auth](./doc/screen-auth.png) ![Add](./doc/screen-add.png) ![Create](./doc/screen-create.png) ![Unlock](./doc/screen-unlock.png) ![Dashboard](./doc/screen-dashboard.png) ![Deposit](./doc/screen-deposit.png) ![Withdraw](./doc/screen-withdraw.png) ![History](./doc/screen-history.png) 
+![Auth](./doc/screenshots/small/screen-auth.png) ![Add](./doc/screenshots/small/screen-add.png) ![Create](./doc/screenshots/small/screen-create.png) ![Unlock](./doc/screenshots/small/screen-unlock.png) ![Dashboard](./doc/screenshots/small/screen-dashboard.png) ![Deposit](./doc/screenshots/small/screen-deposit.png) ![Withdraw](./doc/screenshots/small/screen-withdraw.png) ![History](./doc/screenshots/small/screen-history.png) 
