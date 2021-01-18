@@ -27,7 +27,7 @@ class HistoryView : BaseVmView<HistoryViewModel>(R.string.TITLE_HISTORY_SCREEN) 
             tableview<TransactionsInfo> {
                 items = historyItems
 
-                alignment = Pos.CENTER
+                alignment = Pos.TOP_CENTER
                 readonlyColumn(R.string.ID, TransactionsInfo::id)
                 readonlyColumn(R.string.TYPE, TransactionsInfo::type)
                 readonlyColumn(R.string.ADDRESS, TransactionsInfo::address)
