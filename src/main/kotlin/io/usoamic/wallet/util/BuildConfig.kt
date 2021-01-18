@@ -4,7 +4,7 @@ object BuildConfig {
     const val DEBUG = false
     const val APPLICATION_ID = "io.usoamic.wallet"
     const val BUILD_TYPE = "release"
-    const val FLAVOR = "TestNet"
+    const val FLAVOR = "MainNet"
     const val VERSION_CODE = 1
     const val VERSION_NAME = "1.0.0"
 
