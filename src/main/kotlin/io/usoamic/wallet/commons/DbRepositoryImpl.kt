@@ -12,7 +12,7 @@ class DbRepositoryImpl @Inject constructor(
     override fun updateDashboardInfo(data: DashboardInfo) {
         db.databaseQueries.setDashboardInfo(
             ethBalance = data.ethBalance.toPlainString(),
-            usoBalance = data.ethBalance.toPlainString(),
+            usoBalance = data.usoBalance.toPlainString(),
             height = data.height.toString(),
             supply = data.supply.toPlainString()
         )
