@@ -15,8 +15,8 @@ object Strings {
     const val TITLE = "Usoamic Wallet"
 
     //    Dashboard
-    const val TITLE_DASHBOARD_ETH_BALANCE = "USO Balance"
-    const val TITLE_DASHBOARD_USO_BALANCE = "ETH Balance"
+    const val TITLE_DASHBOARD_ETH_BALANCE = "ETH Balance"
+    const val TITLE_DASHBOARD_USO_BALANCE = "USO Balance"
     const val TITLE_DASHBOARD_HEIGHT = "Height"
     const val TITLE_DASHBOARD_SUPPLY = "Supply"
 
