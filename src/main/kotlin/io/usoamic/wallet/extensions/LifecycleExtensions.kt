@@ -12,9 +12,11 @@ fun <T> observe(ld: MutableLiveData<T>, callback: (T) -> Unit) {
 }
 
 fun MutableLiveData<Unit>.emit() {
+    value = null
     value = Unit
 }
 
 fun <T> MutableLiveData<T>.emit(arg: T) {
+    value = null
     value = arg
 }
