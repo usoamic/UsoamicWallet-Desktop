@@ -51,7 +51,7 @@ class HistoryView : BaseVmView<HistoryViewModel>(R.string.TITLE_HISTORY_SCREEN) 
     private fun setDate(list: List<TransactionItem>) {
         var id = 0
         with(historyItems) {
-            removeAll()
+            clear()
             addAll(
                 list.map {
                     id++
