@@ -22,9 +22,9 @@ class DbRepositoryImpl @Inject constructor(
 
     override fun addTransactionItem(data: TransactionItem) = with(dbQueries) {
         val txId = data.txId
-        val item = getTransaction(txId).executeAsOneOrNull()
+        val transaction = getTransaction(txId).executeAsOneOrNull()
 
-        if(item == null) {
+        if(transaction == null) {
             addTransaction(
                 txId = txId,
                 type = data.type.toString(),
