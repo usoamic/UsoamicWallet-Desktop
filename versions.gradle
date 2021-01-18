@@ -1,0 +1,95 @@
+/*
+ * Based on https://github.com/android/architecture-components-samples/blob/master/versions.gradle
+ */
+
+ext.deps = [:]
+def versions = [:]
+versions.kotlin = '1.4.21'
+
+versions.rxjava2 = '2.2.19'
+versions.rxjavafx = '2.2.2'
+versions.rxkotlin2 = '2.4.0'
+
+versions.usoamickt = '1.2.1'
+versions.validateutilkt = '1.0.0'
+versions.usoamic_wallet_commons = '1.0.0-2'
+versions.gson = "2.8.5"
+versions.web3j = "4.8.1"
+versions.dagger = '2.27'
+versions.jupiter = "5.5.0"
+versions.jupiter_gradle_plugin = "1.2.0"
+versions.tornadofx = "1.7.20"
+versions.zxing = "3.4.0"
+versions.fafx_commons = "11.0"
+versions.fafx_controls = "8.15"
+versions.fafx_fontawesome = "4.7.0-11"
+versions.fafx_icons525 = "3.0.0-11"
+versions.fafx_materialicons = "2.2.0-5"
+versions.fafx_materialdesignfont = "1.7.22-4"
+versions.openjfx_plugin = "0.0.9"
+versions.openjfx = "15.0.1"
+versions.sqldelight = "1.4.4"
+ext.versions = versions
+
+def deps = [:]
+deps.gson = "com.google.code.gson:gson:$versions.gson"
+deps.web3j = "org.web3j:core:$versions.web3j"
+deps.zxing = "com.google.zxing:core:$versions.zxing"
+
+def sqldelight = [:]
+sqldelight.plugin = "com.squareup.sqldelight:gradle-plugin:$versions.sqldelight"
+sqldelight.driver = "com.squareup.sqldelight:sqlite-driver:$versions.sqldelight"
+deps.sqldelight = sqldelight
+
+def openjfx = [:]
+openjfx.plugin = "org.openjfx.javafxplugin:$versions.openjfx_plugin"
+openjfx.controls = "org.openjfx:javafx-controls:$versions.openjfx"
+openjfx.graphics = "org.openjfx:javafx-graphics:$versions.openjfx"
+openjfx.swing = "org.openjfx:javafx-swing:$versions.openjfx"
+deps.openjfx = openjfx
+
+def fontawesomefx = [:]
+fontawesomefx.commons = "de.jensd:fontawesomefx-commons:$versions.fafx_commons"
+fontawesomefx.controls = "de.jensd:fontawesomefx-controls:$versions.fafx_controls"
+fontawesomefx.fontawesome = "de.jensd:fontawesomefx-fontawesome:$versions.fafx_fontawesome"
+fontawesomefx.icons525 = "de.jensd:fontawesomefx-fontawesome:$versions.fafx_icons525"
+fontawesomefx.materialicons = "de.jensd:fontawesomefx-materialicons:$versions.fafx_materialicons"
+fontawesomefx.materialdesignfont = "de.jensd:fontawesomefx-materialdesignfont:$versions.fafx_materialdesignfont"
+deps.fontawesomefx = fontawesomefx
+
+def dagger = [:]
+dagger.runtime = "com.google.dagger:dagger:$versions.dagger"
+dagger.compiler = "com.google.dagger:dagger-compiler:$versions.dagger"
+deps.dagger = dagger
+
+def tornado = [:]
+tornado.fx = "no.tornado:tornadofx:$versions.tornadofx"
+deps.tornado = tornado
+
+def rx = [:]
+rx.java = "io.reactivex.rxjava2:rxjava:$versions.rxjava2"
+rx.kotlin = "io.reactivex.rxjava2:rxkotlin:$versions.rxkotlin2"
+rx.javafx = "io.reactivex.rxjava2:rxjavafx:$versions.rxjavafx"
+deps.rx = rx
+
+def kotlin = [:]
+kotlin.reflect = "org.jetbrains.kotlin:kotlin-reflect:$versions.kotlin"
+kotlin.stdlib = "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$versions.kotlin"
+kotlin.jnit = "org.jetbrains.kotlin:kotlin-test-junit:$versions.kotlin"
+kotlin.plugin = "org.jetbrains.kotlin:kotlin-gradle-plugin:$versions.kotlin"
+deps.kotlin = kotlin
+
+def junit = [:]
+junit.jupiter = "org.junit.jupiter:junit-jupiter:$versions.jupiter"
+junit.jupiter_api = "org.junit.jupiter:junit-jupiter-api:$versions.jupiter"
+junit.jupiter_engine = "org.junit.jupiter:junit-jupiter-engine:$versions.jupiter"
+junit.plugin = "org.junit.platform:junit-platform-gradle-plugin:$versions.jupiter_gradle_plugin"
+deps.junit = junit
+
+def usoamic = [:]
+usoamic.kt = "com.github.usoamic:usoamickt:v$versions.usoamickt"
+usoamic.validateutilkt = "com.github.usoamic:validateutil:v$versions.validateutilkt"
+usoamic.usoamic_wallet_commons = "com.github.usoamic:usoamic-wallet-commons:v$versions.usoamic_wallet_commons"
+deps.usoamic = usoamic
+
+ext.deps = deps

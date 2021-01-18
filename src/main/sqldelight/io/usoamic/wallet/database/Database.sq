@@ -1,0 +1,48 @@
+CREATE TABLE IF NOT EXISTS DashboardInfoEntity (
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    ethBalance TEXT NOT NULL,
+    usoBalance TEXT NOT NULL,
+    height TEXT NOT NULL,
+    supply TEXT NOT NULL
+);
+
+getDashboardInfo:
+SELECT *
+FROM DashboardInfoEntity
+WHERE id = 0;
+
+setDashboardInfo:
+UPDATE DashboardInfoEntity
+SET ethBalance = :ethBalance,
+    usoBalance = :usoBalance,
+    height = :height,
+    supply = :supply
+WHERE id = 0;
+
+clearDashboardInfo:
+DELETE FROM DashboardInfoEntity;
+
+CREATE TABLE IF NOT EXISTS TransactionItemEntity (
+    txId INTEGER PRIMARY KEY AUTOINCREMENT,
+    type TEXT NOT NULL,
+    fromAddress TEXT NOT NULL,
+    toAddress TEXT NOT NULL,
+    value TEXT NOT NULL,
+    timestamp INTEGER NOT NULL
+);
+
+getTransactions:
+SELECT *
+FROM TransactionItemEntity;
+
+getTransaction:
+SELECT *
+FROM TransactionItemEntity
+WHERE txId = :txId;
+
+addTransaction:
+INSERT INTO TransactionItemEntity
+VALUES (:txId, :type, :fromAddress, :toAddress, :value, :timestamp);
+
+clearAllTransactions:
+DELETE FROM TransactionItemEntity;

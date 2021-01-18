@@ -1,0 +1,138 @@
+buildscript {
+    apply from: 'versions.gradle'
+
+    repositories {
+        mavenLocal()
+        mavenCentral()
+    }
+    dependencies {
+        classpath deps.kotlin.plugin
+        classpath deps.junit.plugin
+        classpath deps.sqldelight.plugin
+    }
+}
+
+plugins {
+    id 'application'
+    id 'org.openjfx.javafxplugin' version '0.0.9'
+    id 'org.beryx.runtime' version '1.12.1'
+}
+
+apply plugin: "kotlin"
+apply plugin: "kotlin-kapt"
+apply plugin: "org.junit.platform.gradle.plugin"
+apply plugin: "com.squareup.sqldelight"
+
+sqldelight {
+    Database { // This will be the name of the generated database class.
+        packageName = "io.usoamic.wallet.database"
+    }
+}
+
+javafx {
+    version = versions.openjfx
+    modules = [
+            'javafx.controls',
+            'javafx.graphics',
+            'javafx.swing'
+    ]
+}
+
+application {
+    mainClassName = "io.usoamic.wallet.Main"
+    applicationName = 'UsoamicWallet'
+}
+
+compileKotlin {
+    kotlinOptions.jvmTarget = "15"
+}
+
+allprojects {
+    group = "io.usoamic"
+    version = "1.0.0"
+}
+
+repositories {
+    jcenter()
+    mavenLocal()
+    mavenCentral()
+
+    maven { url 'https://jitpack.io' }
+    maven {
+        url "https://oss.sonatype.org/content/repositories/snapshots/"
+    }
+}
+
+dependencies {
+    compile fileTree(dir: 'libs', include: ['*.jar'])
+    compile deps.kotlin.reflect
+    compile deps.kotlin.stdlib
+
+    compile deps.gson
+    compile deps.zxing
+
+    compile(deps.web3j) {
+        force = true
+    }
+
+    compile deps.rx.java
+    compile deps.rx.kotlin
+    compile deps.rx.javafx
+
+    compile deps.usoamic.kt
+    compile deps.usoamic.validateutilkt
+    compile deps.usoamic.usoamic_wallet_commons
+
+    compile deps.tornado.fx
+
+    compile deps.openjfx.controls
+    compile deps.openjfx.graphics
+    compile deps.openjfx.swing
+
+    compile deps.fontawesomefx.commons
+    compile deps.fontawesomefx.controls
+    compile deps.fontawesomefx.fontawesome
+    compile deps.fontawesomefx.icons525
+    compile deps.fontawesomefx.materialicons
+    compile deps.fontawesomefx.materialdesignfont
+
+    compile deps.sqldelight.driver
+
+    compile deps.dagger.runtime
+    kapt deps.dagger.compiler
+
+    annotationProcessor deps.dagger.compiler
+
+    testImplementation deps.junit.jupiter_api
+    testImplementation deps.junit.jupiter_engine
+}
+
+/*
+ https://github.com/beryx-gist/badass-runtime-example-javafx
+ https://github.com/javafxports/openjdk-jfx/issues/236#issuecomment-426583174
+*/
+runtime {
+    options.set(['--strip-debug', '--compress', '2', '--no-header-files', '--no-man-pages'])
+    modules.set(['java.sql', 'java.desktop', 'jdk.unsupported', 'java.scripting', 'java.logging', 'java.xml'])
+
+    launcher {
+        noConsole = true
+    }
+
+    jpackage {
+        def currentOs = org.gradle.internal.os.OperatingSystem.current()
+        def imgType = currentOs.windows ? 'ico' : currentOs.macOsX ? 'icns' : 'png'
+
+        imageOptions += ['--icon', "src/main/resources/images/ic_usoamic.$imgType"]
+        installerOptions += ['--resource-dir', "src/main/resources"]
+        installerOptions += ['--vendor', 'Usoamic Project']
+
+        if (currentOs.windows) {
+            installerOptions += ['--win-per-user-install', '--win-dir-chooser', '--win-menu', '--win-shortcut']
+        } else if (currentOs.linux) {
+            installerOptions += ['--linux-package-name', 'packageName', '--linux-shortcut']
+        } else if (currentOs.macOsX) {
+            installerOptions += ['--mac-package-name', 'packageName']
+        }
+    }
+}
