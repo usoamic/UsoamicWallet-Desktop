@@ -13,10 +13,12 @@ import javafx.scene.layout.StackPane
 import tornadofx.*
 
 class WithdrawView : BaseVmView<WithdrawViewModel>(R.string.TITLE_WITHDRAW_SCREEN) {
+    private val defaultGasPrice = R.string.GP_AUTO
+
     private val propPassword = stringProperty("")
     private val propAddress = stringProperty("")
     private val propValue = stringProperty("")
-    private val propGasPrice = stringProperty(R.string.GP_AUTO)
+    private val propGasPrice = stringProperty(defaultGasPrice)
 
     override val root: StackPane = stackpane {
         progressWhen {
@@ -104,6 +106,6 @@ class WithdrawView : BaseVmView<WithdrawViewModel>(R.string.TITLE_WITHDRAW_SCREE
         propPassword.clear()
         propAddress.clear()
         propValue.clear()
-        propGasPrice.clear()
+        propGasPrice.value = defaultGasPrice
     }
 }
