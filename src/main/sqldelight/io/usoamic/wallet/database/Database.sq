@@ -35,6 +35,11 @@ getTransactions:
 SELECT *
 FROM TransactionItemEntity;
 
+getTransaction:
+SELECT *
+FROM TransactionItemEntity
+WHERE txId = :txId;
+
 addTransaction:
 INSERT INTO TransactionItemEntity
 VALUES (:txId, :type, :fromAddress, :toAddress, :value, :timestamp);

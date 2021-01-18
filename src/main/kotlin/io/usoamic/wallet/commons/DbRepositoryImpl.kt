@@ -9,8 +9,10 @@ import javax.inject.Inject
 class DbRepositoryImpl @Inject constructor(
     private val db: Database
 ) : DbRepository {
+    private val dbQueries get() = db.databaseQueries
+
     override fun updateDashboardInfo(data: DashboardInfo) {
-        db.databaseQueries.setDashboardInfo(
+        dbQueries.setDashboardInfo(
             ethBalance = data.ethBalance.toPlainString(),
             usoBalance = data.usoBalance.toPlainString(),
             height = data.height.toString(),
@@ -18,23 +20,28 @@ class DbRepositoryImpl @Inject constructor(
         )
     }
 
-    override fun addTransactionItem(data: TransactionItem) {
-        db.databaseQueries.addTransaction(
-            txId = data.txId,
-            type = data.type.toString(),
-            fromAddress = data.from,
-            toAddress = data.to,
-            value = data.value.toBigDecimal().toPlainString(),
-            timestamp = data.timestamp
-        )
+    override fun addTransactionItem(data: TransactionItem) = with(dbQueries) {
+        val txId = data.txId
+        val item = getTransaction(txId).executeAsOneOrNull()
+
+        if(item == null) {
+            addTransaction(
+                txId = txId,
+                type = data.type.toString(),
+                fromAddress = data.from,
+                toAddress = data.to,
+                value = data.value.toBigDecimal().toPlainString(),
+                timestamp = data.timestamp
+            )
+        }
     }
 
     override fun getDashboardInfo(): DashboardInfo? {
-        return db.databaseQueries.getDashboardInfo().executeAsOneOrNull()?.toDomain()
+        return dbQueries.getDashboardInfo().executeAsOneOrNull()?.toDomain()
     }
 
     override fun getTransactions(): List<TransactionItem> {
-        return db.databaseQueries.getTransactions().executeAsList().map {
+        return dbQueries.getTransactions().executeAsList().map {
             it.toDomain()
         }
     }
