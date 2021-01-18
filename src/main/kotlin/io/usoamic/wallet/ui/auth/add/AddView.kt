@@ -2,6 +2,7 @@ package io.usoamic.wallet.ui.auth.add
 
 import io.usoamic.wallet.UsoamicWallet
 import io.usoamic.wallet.customviews.backbuttontoolbar
+import io.usoamic.wallet.extensions.fx.clear
 import io.usoamic.wallet.extensions.fx.progressWhen
 import io.usoamic.wallet.extensions.fx.replaceWithSlideLeft
 import io.usoamic.wallet.extensions.fx.replaceWithSlideRight
@@ -64,5 +65,12 @@ class AddView : BaseVmView<AddViewModel>() {
 
     private fun goToUnlock() {
         replaceWithSlideLeft<UnlockView>()
+    }
+
+    override fun onUndock() {
+        super.onUndock()
+        propPrivateKey.clear()
+        propPassword.clear()
+        propConfirmPassword.clear()
     }
 }

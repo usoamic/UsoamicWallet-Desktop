@@ -1,6 +1,7 @@
 package io.usoamic.wallet.ui.auth.unlock
 
 import io.usoamic.wallet.UsoamicWallet
+import io.usoamic.wallet.extensions.fx.clear
 import io.usoamic.wallet.extensions.fx.progressWhen
 import io.usoamic.wallet.extensions.observe
 import io.usoamic.wallet.ui.auth.auth.AuthView
@@ -87,5 +88,10 @@ class UnlockView : BaseVmView<UnlockViewModel>() {
 
     private fun goToAuth() {
         replaceWith<AuthView>()
+    }
+
+    override fun onUndock() {
+        super.onUndock()
+        propPassword.clear()
     }
 }

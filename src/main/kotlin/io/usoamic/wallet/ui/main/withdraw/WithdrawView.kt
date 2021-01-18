@@ -98,4 +98,12 @@ class WithdrawView : BaseVmView<WithdrawViewModel>(R.string.TITLE_WITHDRAW_SCREE
     override fun inject() {
         UsoamicWallet.component.withdrawSubcomponent.create().inject(this)
     }
+    
+    override fun onTabSelected() {
+        super.onTabSelected()
+        propPassword.clear()
+        propAddress.clear()
+        propValue.clear()
+        propGasPrice.clear()
+    }
 }
