@@ -44,7 +44,7 @@ application {
 }
 
 compileKotlin {
-    kotlinOptions.jvmTarget = "15"
+    kotlinOptions.jvmTarget = "11"
 }
 
 allprojects {
@@ -112,7 +112,7 @@ dependencies {
  https://github.com/javafxports/openjdk-jfx/issues/236#issuecomment-426583174
 */
 runtime {
-    options.set(['--strip-java-debug-attributes', '--compress', '2', '--no-header-files', '--no-man-pages'])
+    options.set(['--strip-debug', '--compress', '2', '--no-header-files', '--no-man-pages'])
     modules.set(['java.sql', 'java.desktop', 'jdk.unsupported', 'java.scripting', 'java.logging', 'java.xml'])
 
     launcher {
@@ -137,4 +137,28 @@ runtime {
             installerOptions += ['--mac-package-name', packageName]
         }
     }
+}
+
+jar {
+    def jvmAppendix = "jdk${compileKotlin.kotlinOptions.jvmTarget}"
+
+    manifest {
+        attributes(
+                'Main-Class': 'io.usoamic.wallet.Main'
+        )
+    }
+    from {
+        configurations.runtimeClasspath.collect { it.isDirectory() ? it : zipTree(it) }
+    }
+
+    archiveName = project.name.toLowerCase() + "-" + project.version + "-" + jvmAppendix
+
+    exclude(
+            "META-INF/*.SF",
+            "META-INF/*.DSA",
+            "META-INF/*.RSA",
+            "junit",
+            "org.mockito",
+            "org.hamcrest"
+    )
 }
