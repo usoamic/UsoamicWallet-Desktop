@@ -49,7 +49,7 @@ compileKotlin {
 
 allprojects {
     group = "io.usoamic"
-    version = "1.0.1"
+    version = "1.0.1-jdk${compileKotlin.kotlinOptions.jvmTarget}"
 }
 
 repositories {
@@ -140,8 +140,6 @@ runtime {
 }
 
 jar {
-    def jvmAppendix = "jdk${compileKotlin.kotlinOptions.jvmTarget}"
-
     manifest {
         attributes(
                 'Main-Class': 'io.usoamic.wallet.Main'
@@ -151,7 +149,7 @@ jar {
         configurations.runtimeClasspath.collect { it.isDirectory() ? it : zipTree(it) }
     }
 
-    archiveName = project.name.toLowerCase() + "-" + project.version + "-" + jvmAppendix
+    baseName = project.name.toLowerCase()
 
     exclude(
             "META-INF/*.SF",
