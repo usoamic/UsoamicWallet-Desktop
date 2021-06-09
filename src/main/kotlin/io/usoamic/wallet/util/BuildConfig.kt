@@ -5,8 +5,8 @@ object BuildConfig {
     const val APPLICATION_ID = "io.usoamic.wallet"
     const val BUILD_TYPE = "release"
     const val FLAVOR = "MainNet"
-    const val VERSION_CODE = 1
-    const val VERSION_NAME = "1.0.0"
+    const val VERSION_CODE = 3
+    const val VERSION_NAME = "1.0.2"
 
     const val ACCOUNT_FILENAME = "account.json"
     const val DATE_FORMAT = "yyyy-MM-dd HH:mm"
