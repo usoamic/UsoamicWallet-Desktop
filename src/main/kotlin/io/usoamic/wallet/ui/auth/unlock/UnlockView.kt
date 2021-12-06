@@ -26,16 +26,17 @@ class UnlockView : BaseVmView<UnlockViewModel>() {
                 form {
                     fieldset {
                         field(R.string.PASSWORD) {
-                            passwordfield(propPassword)
+                            passwordfield(propPassword) {
+                                action(::onNextClick)
+                            }
+
                         }
                     }
 
                     vbox(R.dimen.DEFAULT_INDENT) {
                         button(R.string.NEXT) {
                             fitToParentWidth()
-                            action {
-                                viewModel.onNextClick(propPassword.value)
-                            }
+                            action(::onNextClick)
                         }
 
                         button(R.string.LOGOUT) {
@@ -65,6 +66,10 @@ class UnlockView : BaseVmView<UnlockViewModel>() {
             }
             goToAuth()
         }
+    }
+
+    private fun onNextClick() {
+        viewModel.onNextClick(propPassword.value)
     }
 
     private fun onLogoutClick() {
